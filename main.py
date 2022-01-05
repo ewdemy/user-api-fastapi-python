@@ -22,10 +22,6 @@ db: List[User] = [
     )
 ]
 
-@app.get("/")
-async def index():
-    return {"Hello": "Mundo!!!"}
-
 @app.get("/api/v1/users")
 async def get_all_users():
     if(len(db) == 0):
