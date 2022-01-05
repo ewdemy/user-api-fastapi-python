@@ -32,6 +32,12 @@ async def get_all_users():
        return []
     return db
 
+@app.get("/api/v1/users/{id}")
+async def get_user(id: UUID):
+    for user in db:
+        if(user.id == id):
+            return user
+
 @app.post("/api/v1/users", status_code = 201)
 async def create_user(user: User):
     db.append(user)
